@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import apiClient from '../api/client';
 import { Loader2, Rocket, Activity, TrendingUp, Zap, Globe, Star, Users, RefreshCw } from 'lucide-react';
 
 interface StarlinkStats {
@@ -192,8 +192,8 @@ export default function SpaceXPage() {
   const fetchData = async () => {
     try {
       const [starlinkRes, rocketsRes] = await Promise.all([
-        axios.get('http://localhost:8000/api/v1/spacex/starlink'),
-        axios.get('http://localhost:8000/api/v1/spacex/rockets'),
+        apiClient.get('/spacex/starlink'),
+        apiClient.get('/spacex/rockets'),
       ]);
       setStarlink(starlinkRes.data);
       setRockets(rocketsRes.data);

@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useMemo } from 'react';
-import axios from 'axios';
+import apiClient from '../api/client';
 import { Satellite, Info, RefreshCw, Search, Filter, Globe, Activity, Layers, Zap } from 'lucide-react';
 import ExplainButton from '../components/ui/ExplainButton';
 import Earth3D from '../components/Earth3D';
@@ -34,7 +34,7 @@ const SatelliteDashboard: React.FC = () => {
   const fetchSatellites = async () => {
     setLoading(true);
     try {
-      const response = await axios.get('http://localhost:8000/api/v1/satellites/?limit=100');
+      const response = await apiClient.get('/satellites/?limit=100');
       setSatellites(response.data);
     } catch (error) {
       console.error('Failed to fetch satellites', error);
@@ -48,7 +48,7 @@ const SatelliteDashboard: React.FC = () => {
   const handleIngest = async () => {
     setIngesting(true);
     try {
-      await axios.post('http://localhost:8000/api/v1/satellites/ingest');
+      await apiClient.post('/satellites/ingest');
       alert('Ingestion started. Please refresh after a minute.');
     } catch (error) {
       console.error('Failed to ingest', error);

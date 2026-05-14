@@ -1,8 +1,10 @@
 import axios from 'axios';
 import { useAuthStore } from '../store/useStore';
 
+const baseURL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api/v1';
+
 const apiClient = axios.create({
-  baseURL: 'http://localhost:8000/api/v1',
+  baseURL,
 });
 
 // Request interceptor to attach JWT token
