@@ -1,0 +1,17 @@
+fastapi
+uvicorn[standard]
+sqlalchemy
+pydantic
+pydantic-settings
+python-dotenv
+python-multipart
+python-jose[cryptography]
+passlib[bcrypt]
+httpx
+apscheduler
+groq
+bcrypt
+fastapi-cache2
+slowapi
+jinja2
+
