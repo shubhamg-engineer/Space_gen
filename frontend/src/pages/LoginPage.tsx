@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useAuthStore } from '../store/useStore';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios';
+import apiClient from '../api/client';
 
 const LoginPage: React.FC = () => {
   const [username, setUsername] = useState('');
@@ -17,7 +17,7 @@ const LoginPage: React.FC = () => {
       formData.append('username', username);
       formData.append('password', password);
 
-      const res = await axios.post('http://localhost:8000/api/v1/auth/login', formData, {
+      const res = await apiClient.post('/auth/login', formData, {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' }
       });
       

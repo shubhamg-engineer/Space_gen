@@ -39,7 +39,9 @@ const OwnerDashboard: React.FC = () => {
   // WebSocket for live telemetry
   useEffect(() => {
     if (!token) return;
-    const ws = new WebSocket('ws://localhost:8000/api/v1/launches/live/ws');
+    const baseURL = import.meta.env.VITE_API_URL || 'http://localhost:8000/api/v1';
+    const wsUrl = baseURL.replace(/^http/, 'ws') + '/launches/live/ws';
+    const ws = new WebSocket(wsUrl);
     wsRef.current = ws;
     ws.onopen = () => setWsConnected(true);
     ws.onclose = () => setWsConnected(false);

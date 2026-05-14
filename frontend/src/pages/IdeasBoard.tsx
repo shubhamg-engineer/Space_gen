@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Lightbulb, Plus, ThumbsUp, RefreshCw } from 'lucide-react';
+import { Lightbulb, Plus, ThumbsUp } from 'lucide-react';
 import apiClient from '../api/client';
 
 interface Idea {

@@ -11,7 +11,7 @@ interface SatellitePoint {
 }
 
 const Earth3D: React.FC = () => {
-  const globeRef = useRef<any>();
+  const globeRef = useRef<any>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [satellites, setSatellites] = useState<SatellitePoint[]>([]);
   const [dimensions, setDimensions] = useState({ width: 800, height: 500 });
@@ -89,7 +89,7 @@ const Earth3D: React.FC = () => {
         objectLat="lat"
         objectLng="lng"
         objectAltitude="alt"
-        objectFacesSurface={false}
+        objectFacesSurfaces={false}
         objectLabel="name"
         objectThreeObject={(d: any) => {
           const geometry = new THREE.SphereGeometry(0.5, 6, 6);

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import apiClient from '../api/client';
-import { Loader2, Rocket, Activity, TrendingUp, Zap, Globe, Star, Users, RefreshCw } from 'lucide-react';
+import { Loader2, Rocket, TrendingUp, Zap, Globe, Star, RefreshCw } from 'lucide-react';
 
 interface StarlinkStats {
   active: number;
