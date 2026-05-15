@@ -23,7 +23,7 @@ def ingest_satellites(background_tasks: BackgroundTasks, db: Session = Depends(g
 @cache(expire=300)
 def get_satellites(
     skip: int = 0,
-    limit: int = Query(default=100, le=500),
+    limit: int = Query(default=2000, le=5000),
     search: Optional[str] = None,
     orbit_type: Optional[str] = None,
     country: Optional[str] = None,

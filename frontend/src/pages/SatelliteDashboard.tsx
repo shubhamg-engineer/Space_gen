@@ -34,7 +34,7 @@ const SatelliteDashboard: React.FC = () => {
   const fetchSatellites = async () => {
     setLoading(true);
     try {
-      const response = await apiClient.get('/satellites/?limit=100');
+      const response = await apiClient.get('/satellites/?limit=2000');
       setSatellites(response.data);
     } catch (error) {
       console.error('Failed to fetch satellites', error);
