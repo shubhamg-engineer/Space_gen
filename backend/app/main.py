@@ -138,8 +138,9 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
+        "http://localhost:3000",
         "https://space-gen-lyart.vercel.app",
-        # Allow any Vercel preview domains if necessary
+        "https://spacegen-rho.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
