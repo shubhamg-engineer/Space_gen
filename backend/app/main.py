@@ -136,7 +136,11 @@ app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Restrict to frontend domain in production
+    allow_origins=[
+        "http://localhost:5173",
+        "https://space-gen-lyart.vercel.app",
+        # Allow any Vercel preview domains if necessary
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
